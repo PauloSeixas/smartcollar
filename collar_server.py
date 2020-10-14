@@ -2,20 +2,10 @@ import os
 import os.path
 import datetime
 import json
-import glob
 import os
 from flask import Flask, jsonify, request, url_for, session, flash,render_template
-import plotly
-import plotly.graph_objs as go
-
-import pandas as pd
-import json
-import numpy as np
-from flask_sqlalchemy import SQLAlchemy
-#from tables import db, Pet,Collar
-
 from models.tabelas import db,Pet,Collar,Telemetry
-#import Models
+
 
 
 def create_app():
