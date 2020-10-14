@@ -9,24 +9,25 @@
       Coletados
     </p>
 
+
 	<div class="container">
 	  <div class="row">
-		<div class="col">Pet Name</div>
-		<div class="col">Pet Code</div>
+		<div class="col">Code</div>
+		<div class="col">Collar id</div>
         <div class="col">Temperature</div>
-		<div class="col">Heart Frequency</div>
-		<div class="col">x-axis</div>
-		<div class="col">y-axis</div>
+		<div class="col">heartbeat</div>
+		<div class="col">X axis</div>
+		<div class="col">Y axis</div>
 	  </div>
 
 	  {% for item in dados %}
 		<div class="row">
-			<div class="col">{{(item.name)}}</div>
 			<div class="col">{{(item.code)}}</div>
-			<div class="col">{{(item.name)}}</div>
-			<div class="col">{{(item.name)}}</div>
-			<div class="col">{{(item.name)}}</div>
-            <div class="col">{{(item.code)}}</div>
+			<div class="col">{{(item.collar_id)}}</div>
+			<div class="col">{{(item.temperature)}}</div>
+			<div class="col">{{(item.heartbeat)}}</div>
+			<div class="col">{{(item.x_axis)}}</div>
+			<div class="col">{{(item.y_axis)}}</div>
 		</div>
 	  {% endfor %}
 	</div>

@@ -24,36 +24,30 @@ def create_app():
         error = None
         if request.method == 'POST':
             json_data = request.get_json()
-            pet_tracked = Pet(name=str(json_data["name"]),
-                              code=str(json_data["code"]),
-                              birth=str(json_data["birth"]),
-                              race=str(json_data["race"])
-                                  )
 
-            collar = Collar(heart_frequency=int(json_data["heart_frequency"]),
+            telemetry = Telemetry(
+                            code=str(json_data["code"]),
                             temperature=str(json_data["temperature"]),
+                            heartbeat=int(json_data["heartbeat"]),
                             x_axis=str(json_data["x_axis"]),
                             y_axis=int(json_data["y_axis"]),
-                            pet=pet_tracked
-
+                            collar_id=int(json_data["collar_id"]),
             )
-            db.session.add(pet_tracked)
-            db.session.add(collar)
+            db.session.add(telemetry)
             db.session.commit()
         return render_template('index.html')
 
     @app.route('/resultados')
 
     def exibirmedicoes(dados=None):
-        query = db.session.query(Pet).order_by(Pet.id).all()
-        for item in query:
-            print(item.name)
+        query = db.session.query(Telemetry).order_by(Telemetry.id).all()
+
         return render_template('results.html', dados=query)
 
 
     @app.route('/teste', methods=['POST', 'GET'])
     def data():
-
+        '''
         pet_teste = Pet(
                         name=str("Leoa"),
                         code=str("1234"),
@@ -61,7 +55,7 @@ def create_app():
                         specie=str("dog"),
                         race=str("bulldog")
                         )
-        '''
+
         collar = Collar(
                         code=str("01234"),
                         pet_id=0,
@@ -85,7 +79,7 @@ def create_app():
         )
 
 
-        db.session.add(pet_teste)
+        #db.session.add(pet_teste)
         #db.session.add(collar)
         db.session.add(telemetry_1)
         db.session.add(telemetry_2)
