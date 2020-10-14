@@ -40,28 +40,14 @@ def create_app():
     @app.route('/resultados')
 
     def exibirmedicoes(dados=None):
-        query = db.session.query(Telemetry).order_by(Telemetry.id).all()
+        query = db.session.query(Telemetry).order_by(Telemetry.id.desc()).all()
 
         return render_template('results.html', dados=query)
 
 
     @app.route('/teste', methods=['POST', 'GET'])
     def data():
-        '''
-        pet_teste = Pet(
-                        name=str("Leoa"),
-                        code=str("1234"),
-                        birth=datetime.datetime.now(),
-                        specie=str("dog"),
-                        race=str("bulldog")
-                        )
-
-        collar = Collar(
-                        code=str("01234"),
-                        pet_id=0,
-                        )
-        '''
-        telemetry_1 = Telemetry(
+        telemetry = Telemetry(
                         code=str("12345"),
                         temperature=float("35"),
                         heartbeat=int("85"),
@@ -69,20 +55,9 @@ def create_app():
                         y_axis=int("10"),
                         collar_id=0
                         )
-        telemetry_2 = Telemetry(
-            code=str("12345"),
-            temperature=float("35"),
-            heartbeat=int("85"),
-            x_axis=int("10"),
-            y_axis=int("10"),
-            collar_id=0
-        )
 
 
-        #db.session.add(pet_teste)
-        #db.session.add(collar)
-        db.session.add(telemetry_1)
-        db.session.add(telemetry_2)
+        db.session.add(telemetry)
         db.session.commit()
         return render_template('results.html')
     return app
