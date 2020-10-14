@@ -27,9 +27,9 @@ def create_app():
 
             telemetry = Telemetry(
                             code=str(json_data["code"]),
-                            temperature=str(json_data["temperature"]),
+                            temperature=float(json_data["temperature"]),
                             heartbeat=int(json_data["heartbeat"]),
-                            x_axis=str(json_data["x_axis"]),
+                            x_axis=int(json_data["x_axis"]),
                             y_axis=int(json_data["y_axis"]),
                             collar_id=int(json_data["collar_id"]),
             )
