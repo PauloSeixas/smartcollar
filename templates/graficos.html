@@ -1,0 +1,19 @@
+{% extends "body.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block content %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <h1>Coletados</h1>
+
+
+    <div class="chart" id="scatter">
+        <script>
+            var graphs = {{plot | safe}};
+            Plotly.plot('scatter',graphs,{});
+        </script>
+    </div>
+
+{% endblock %}
