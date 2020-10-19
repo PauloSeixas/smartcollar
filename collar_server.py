@@ -26,12 +26,16 @@ def create_app():
             json_data = request.get_json()
 
             telemetry = Telemetry(
-                            code=str(json_data["code"]),
-                            temperature=float(json_data["temperature"]),
+                            temperature=int(json_data["temperature"]),
+                            humidity=int(json_data["humidity"]),
                             heartbeat=int(json_data["heartbeat"]),
+                            oxigen=int(json_data["oxigen"]),
+                            latitude=int(json_data["latitude"]),
+                            longitude=int(json_data["longitude"]),
                             x_axis=int(json_data["x_axis"]),
                             y_axis=int(json_data["y_axis"]),
-                            collar_id=int(json_data["collar_id"]),
+                            z_axis=int(json_data["z_axis"]),
+                            collar_code=str(json_data["collar_id"]),
             )
             db.session.add(telemetry)
             db.session.commit()
@@ -48,12 +52,16 @@ def create_app():
     @app.route('/teste', methods=['POST', 'GET'])
     def data():
         telemetry = Telemetry(
-                        code=str("12345"),
-                        temperature=float("35"),
-                        heartbeat=int("85"),
-                        x_axis=int("10"),
-                        y_axis=int("10"),
-                        collar_id=0
+                        temperature=30,
+                        humidity=45,
+                        heartbeat=65,
+                        oxigen=85,
+                        latitude=0,
+                        longitude=0,
+                        x_axis=10,
+                        y_axis=10,
+                        z_axis=10,
+                        collar_code="PA1234"
                         )
 
 

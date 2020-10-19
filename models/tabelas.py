@@ -76,22 +76,31 @@ class Telemetry(db.Model):
 	__tablename__ = "telemetries"
 	id = db.Column(db.Integer, primary_key = True)
 	code = db.Column(db.String)
-	temperature = db.Column(db.Float)
+	temperature = db.Column(db.Integer)
+	humidity = db.Column(db.Integer)
 	heartbeat = db.Column(db.Integer)
+	oxigen = db.Column(db.Integer)
+	latitude = db.Column(db.Integer)
+	longitude = db.Column(db.Integer)
 	x_axis = db.Column(db.Integer)
 	y_axis = db.Column(db.Integer)
+	z_axis = db.Column(db.Integer)
 	timestamp = db.Column(db.DateTime)
-	collar_id = db.Column(db.Integer,db.ForeignKey('collar.id'))
+	collar_code = db.Column(db.Integer,db.ForeignKey('collar.code'))
 	
 	
-	def __init__(self, code, temperature, heartbeat,x_axis,y_axis,collar_id):
-		self.code = code
+	def __init__(self,temperature,humidity,heartbeat,oxigen,latitude,longitude,x_axis,y_axis,z_axis,collar_code):
 		self.temperature = temperature
+		self.humidity = humidity
 		self.heartbeat = heartbeat
+		self.oxigen = oxigen
+		self.latitude = latitude
+		self.longitude = longitude
 		self.x_axis = x_axis
 		self.y_axis = y_axis
+		self.z_axis = z_axis
 		self.timestamp = datetime.datetime.now()
-		self.collar_id = collar_id
+		self.collar_code = collar_code
 
 		
 	def __repr__(self):

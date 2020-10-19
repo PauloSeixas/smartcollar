@@ -9,26 +9,36 @@
       Coletados
     </p>
 
+
 	<div class="container">
 	  <div class="row">
-		<div class="col">itme</div>
-		<div class="col">Code</div>
-		<div class="col">Collar id</div>
+		<div class="col">item</div>
+		<div class="col">Corlar code</div>
         <div class="col">Temperature</div>
-		<div class="col">heartbeat</div>
+		<div class="col">Humidity</div>
+		<div class="col">Heartbeat</div>
+		<div class="col">Oxigen</div>
+		<div class="col">Latitude</div>
+		<div class="col">Longitude</div>
 		<div class="col">X axis</div>
 		<div class="col">Y axis</div>
+		<div class="col">Z axis</div>
+		<div class="col">Time</div>
 	  </div>
-
 	  {% for item in dados %}
 		<div class="row">
 			<div class="col">{{(item.id)}}</div>
-			<div class="col">{{(item.code)}}</div>
-			<div class="col">{{(item.collar_id)}}</div>
+			<div class="col">{{(item.colar_code)}}</div>
 			<div class="col">{{(item.temperature)}}</div>
+			<div class="col">{{(item.humidity)}}</div>
 			<div class="col">{{(item.heartbeat)}}</div>
+			<div class="col">{{(item.oxigen)}}</div>
+			<div class="col">{{(item.latitude)}}</div>
+			<div class="col">{{(item.longitude)}}</div>
 			<div class="col">{{(item.x_axis)}}</div>
 			<div class="col">{{(item.y_axis)}}</div>
+			<div class="col">{{(item.z_axis)}}</div>
+			<div class="col">{{(item.timestamp)}}</div>
 		</div>
 	  {% endfor %}
 	</div>
