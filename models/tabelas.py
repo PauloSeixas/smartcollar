@@ -104,4 +104,4 @@ class Telemetry(db.Model):
 
 		
 	def __repr__(self):
-		return "<Collar coede %r>" % self.code
+		return "<Collar code%r>" % self.code

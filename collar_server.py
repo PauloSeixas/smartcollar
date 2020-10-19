@@ -35,7 +35,7 @@ def create_app():
                             x_axis=int(json_data["x_axis"]),
                             y_axis=int(json_data["y_axis"]),
                             z_axis=int(json_data["z_axis"]),
-                            collar_code=str(json_data["collar_id"]),
+                            collar_code=str(json_data["collar_id"])
             )
             db.session.add(telemetry)
             db.session.commit()
