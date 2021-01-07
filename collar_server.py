@@ -30,11 +30,14 @@ def create_app():
                             humidity=int(json_data["humidity"]),
                             heartbeat=int(json_data["heartbeat"]),
                             oxigen=int(json_data["oxigen"]),
-                            latitude=int(json_data["latitude"]),
-                            longitude=int(json_data["longitude"]),
+                            latitude=float(json_data["latitude"]),
+                            longitude=float(json_data["longitude"]),
                             x_axis=int(json_data["x_axis"]),
                             y_axis=int(json_data["y_axis"]),
                             z_axis=int(json_data["z_axis"]),
+                            x_ang=int(json_data["x_ang"]),
+                            y_ang=int(json_data["y_ang"]),
+                            z_ang=int(json_data["z_ang"]),
                             collar_code=str(json_data["collar_id"])
             )
             db.session.add(telemetry)

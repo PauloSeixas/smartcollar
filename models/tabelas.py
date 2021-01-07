@@ -80,16 +80,19 @@ class Telemetry(db.Model):
 	humidity = db.Column(db.Integer)
 	heartbeat = db.Column(db.Integer)
 	oxigen = db.Column(db.Integer)
-	latitude = db.Column(db.Integer)
-	longitude = db.Column(db.Integer)
+	latitude = db.Column(db.Float)
+	longitude = db.Column(db.Float)
 	x_axis = db.Column(db.Integer)
 	y_axis = db.Column(db.Integer)
 	z_axis = db.Column(db.Integer)
+	x_ang = db.Column(db.Integer)
+	y_ang = db.Column(db.Integer)
+	z_ang = db.Column(db.Integer)
 	timestamp = db.Column(db.DateTime)
 	collar_code = db.Column(db.Integer,db.ForeignKey('collar.code'))
 	
 	
-	def __init__(self,temperature,humidity,heartbeat,oxigen,latitude,longitude,x_axis,y_axis,z_axis,collar_code):
+	def __init__(self,temperature,humidity,heartbeat,oxigen,latitude,longitude,x_axis,y_axis,z_axis,x_ang,y_ang,z_ang,collar_code):
 		self.temperature = temperature
 		self.humidity = humidity
 		self.heartbeat = heartbeat
@@ -99,6 +102,9 @@ class Telemetry(db.Model):
 		self.x_axis = x_axis
 		self.y_axis = y_axis
 		self.z_axis = z_axis
+		self.x_ang = x_ang
+		self.y_ang = y_ang
+		self.z_ang = z_ang
 		self.timestamp = datetime.datetime.now()
 		self.collar_code = collar_code
 
