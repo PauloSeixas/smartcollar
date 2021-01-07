@@ -89,7 +89,7 @@ class Telemetry(db.Model):
 	y_ang = db.Column(db.Integer)
 	z_ang = db.Column(db.Integer)
 	timestamp = db.Column(db.DateTime)
-	collar_code = db.Column(db.Integer,db.ForeignKey('collar.code'))
+	collar_code = db.Column(db.String,db.ForeignKey('collar.code'))
 	
 	
 	def __init__(self,temperature,humidity,heartbeat,oxigen,latitude,longitude,x_axis,y_axis,z_axis,x_ang,y_ang,z_ang,collar_code):
